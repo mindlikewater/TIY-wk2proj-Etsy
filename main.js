@@ -79,14 +79,12 @@ function madeOfWood (items) {
   var woodItems = items.filter (function (objs) {
     return objs.materials.includes("wood");
   });
-  var item1 = woodItems[0].title;
-  var item2 = woodItems[1].title;
-  var item3 = woodItems[2].title;
-  var item4 = woodItems[3].title;
-  var item5 = woodItems[4].title;
+  var woodList = woodItems.map(function (x) {
+  return x.title;
+});
 
   var answer4 = document.getElementById("answer4");
-  answer4.innerHTML = "Items made of wood: " + "<br />" + item1 + "<br />" + "<br />" + item2 + "<br />" + "<br />" + item3 + "<br />" + "<br />" + item4 + "<br />" + "<br />" + item5;
+  answer4.innerHTML = "Items made of wood: " + "<br />" + woodList[0] + "<br />" + "<br />" + woodList[1] + "<br />" + "<br />" + woodList[2] + "<br />" + "<br />" + woodList[3] + "<br />" + "<br />" + woodList[4];
 };
 
 madeOfWood(items);
