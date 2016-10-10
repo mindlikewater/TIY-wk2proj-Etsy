@@ -51,7 +51,7 @@ function getItemsInRange (items) {
       }
   }
   var answer2 = document.getElementById("answer2");
-  answer2.innerHTML = "Items that cost between $14-$18: " + list;
+  answer2.innerHTML = "Items that cost between $14-$18: " + "<br />" + list[0] + "<br />" + "<br />" + list[1] + "<br />" + "<br />" + list[2];
 };
 
 getItemsInRange(items);
@@ -68,55 +68,42 @@ getItemsInRange(items);
      }
    }
    var answer3 = document.getElementById("answer3");
-   answer3.innerHTML = GBPitems;
+   answer3.innerHTML = "Items sold in GBP currency: " + GBPitems;
  };
 
 getGBP(items);
 
+
 //4.
-/*
 function madeOfWood (items) {
-  var woodenItems = [];
-  var itemNow = items[i];
-  for (var i=0; i<items.length; i++) {
-    if (itemNow.materials. )
-
-    for (var i=0; i<itemNow.materials.length; i++) {
-      if (itemNow.materials === "wood") {
-        woodenItems.push(itemNow.title);
-      }
-    }
-  }
-  return woodenItems;
-};
-
-function getPrices (items) {
-  var pricesArray = [];
-  for (var i = 0; i < items.length; i++) {
-     pricesArray.push(items[i].price);
-    }
-  return pricesArray;
-};
-/*
-  var woodItems = items.map (function (x) {
-    if (x.materials === "wood") {
-    return x.materials;
-    }
+  var woodItems = items.filter (function (objs) {
+    return objs.materials.includes("wood");
   });
-  return woodItems;
+  var item1 = woodItems[0].title;
+  var item2 = woodItems[1].title;
+  var item3 = woodItems[2].title;
+  var item4 = woodItems[3].title;
+  var item5 = woodItems[4].title;
+
+  var answer4 = document.getElementById("answer4");
+  answer4.innerHTML = "Items made of wood: " + "<br />" + item1 + "<br />" + "<br />" + item2 + "<br />" + "<br />" + item3 + "<br />" + "<br />" + item4 + "<br />" + "<br />" + item5;
 };
 
+madeOfWood(items);
 
 //5.
 function manyMaterials (items) {
   var mat8plus = items.filter (function (objs) {
     return objs.materials.length >= 8;
   });
-  var listing = mat8plus.filter (function (x) {
-    return x.title + x.quantity + x.materials;
-  });
+  var listItem1 = mat8plus[0].title + " has " + mat8plus[0].materials.length + " materials: " + mat8plus[0].materials;
+  var listItem2 = mat8plus[1].title + " has " + mat8plus[1].materials.length + " materials: " + mat8plus[1].materials;
+
+  var answer5 = document.getElementById("answer5");
+  answer5.innerHTML = "Items with 8+ materials: " + "<br />" + listItem1 + "<br />" + "<br />" + listItem2;
 };
-*/
+
+manyMaterials(items);
 
 //6.
 function findHandmade (items) {
@@ -133,11 +120,3 @@ function findHandmade (items) {
 };
 
 findHandmade(items);
-
-/*
- for (var i = 0; i < items.length; i++) {
-   if (items[i].currency_code === "GBP") {
-     newArray.push("£"); items[i].price);
-   }
- }
-*/
