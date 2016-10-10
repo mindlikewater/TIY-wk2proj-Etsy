@@ -29,7 +29,7 @@ function avgPrice (items) {
 //1.
 function avgPrice (items) {
   var getPrices = items.map(function (items) {
-    return items.price;
+    return Number(items.price);
   });
   var sum = getPrices.reduce(function (total, nextPrice) {
     return total + nextPrice;
@@ -38,8 +38,6 @@ function avgPrice (items) {
   var answer1 = document.getElementById("answer1");
   answer1.innerHTML = "The average price is: $" + average.toFixed(2);
 };
-
-avgPrice(items);
 
 //2.
 function getItemsInRange (items) {
@@ -53,8 +51,6 @@ function getItemsInRange (items) {
   var answer2 = document.getElementById("answer2");
   answer2.innerHTML = "Items that cost between $14-$18: " + "<br />" + list[0] + "<br />" + "<br />" + list[1] + "<br />" + "<br />" + list[2];
 };
-
-getItemsInRange(items);
 
 //3.
  function getGBP (items) {
@@ -71,9 +67,6 @@ getItemsInRange(items);
    answer3.innerHTML = "Items sold in GBP currency: " + GBPitems;
  };
 
-getGBP(items);
-
-
 //4.
 function madeOfWood (items) {
   var woodItems = items.filter (function (objs) {
@@ -87,8 +80,6 @@ function madeOfWood (items) {
   answer4.innerHTML = "Items made of wood: " + "<br />" + woodList[0] + "<br />" + "<br />" + woodList[1] + "<br />" + "<br />" + woodList[2] + "<br />" + "<br />" + woodList[3] + "<br />" + "<br />" + woodList[4];
 };
 
-madeOfWood(items);
-
 //5.
 function manyMaterials (items) {
   var mat8plus = items.filter (function (objs) {
@@ -100,8 +91,6 @@ function manyMaterials (items) {
   var answer5 = document.getElementById("answer5");
   answer5.innerHTML = "Items with 8+ materials: " + "<br />" + listItem1 + "<br />" + "<br />" + listItem2;
 };
-
-manyMaterials(items);
 
 //6.
 function findHandmade (items) {
@@ -116,5 +105,3 @@ function findHandmade (items) {
   var answer6 = document.getElementById("answer6");
   answer6.innerHTML = handmade;
 };
-
-findHandmade(items);
