@@ -39,7 +39,7 @@ function avgPrice (items) {
   answer1.innerHTML = "The average price is: $" + average.toFixed(2);
 };
 
-avgPrice();
+avgPrice(items);
 
 //2.
 function getItemsInRange (items) {
@@ -50,32 +50,28 @@ function getItemsInRange (items) {
         list.push(itemNow.title);
       }
   }
-  return list;
+  var answer2 = document.getElementById("answer2");
+  answer2.innerHTML = "Items that cost between $14-$18: " + list;
 };
 
-/*
-var getPrices = items.map(function (x) {
-  return x.price;
-});
-
-var list = getPrices.filter(function (cost) {
-  return cost > 18 && cost < 18;
-});
-*/
+getItemsInRange(items);
 
 //3.
  function getGBP (items) {
-   var newArray = [];
+   var GBPitems = [];
    for (var i = 0; i < items.length; i++) {
      var itemNow = items[i];
      if (itemNow.currency_code === "GBP") {
-       var price = "£" + itemNow.price;
-       newArray.push(itemNow.title);
-       newArray.push(price);
+       var price = " &#163;" + itemNow.price;
+       GBPitems.push(itemNow.title);
+       GBPitems.push(price);
      }
    }
-   return newArray;
+   var answer3 = document.getElementById("answer3");
+   answer3.innerHTML = GBPitems;
  };
+
+getGBP(items);
 
 //4.
 /*
@@ -109,7 +105,7 @@ function getPrices (items) {
   });
   return woodItems;
 };
-*/
+
 
 //5.
 function manyMaterials (items) {
@@ -120,6 +116,7 @@ function manyMaterials (items) {
     return x.title + x.quantity + x.materials;
   });
 };
+*/
 
 //6.
 function findHandmade (items) {
@@ -130,9 +127,12 @@ function findHandmade (items) {
     return self === "i_did";
     });
   var sum = onlyHandmade.length;
-  var answer = sum + " were made by their sellers";
-  return answer;
+  var handmade = sum + " items were made by their sellers";
+  var answer6 = document.getElementById("answer6");
+  answer6.innerHTML = handmade;
 };
+
+findHandmade(items);
 
 /*
  for (var i = 0; i < items.length; i++) {
